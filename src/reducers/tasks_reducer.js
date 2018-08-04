@@ -9,14 +9,23 @@ var myReducer = (state = initialState, action) => {
         case types.SHOW_LIST:
             return state;
         /////////////////////////////////////////////////////////
-        case types.ADD_ITEM:
-            const { name, status } = action.task;
+        case types.SAVE_ITEM:
+            const { name, date, status, id } = action.task;
             var newItem = {
-                id: randomString(),
+                id: id,
                 name: name,
+                date: date,
                 status: status === "false" ? false : true
             }
-            state.push(newItem);
+            if (!newItem.id) {
+                newItem.id = randomString();
+                state.push(newItem);
+            } else {
+                index = state.findIndex((state) => {
+                    return id === state.id;
+                });
+                state[index] = newItem;
+            }
             localStorage.setItem('tasks', JSON.stringify(state));
             return [...state];
         /////////////////////////////////////////////////////////
@@ -43,6 +52,10 @@ var myReducer = (state = initialState, action) => {
             localStorage.setItem('tasks', JSON.stringify(state));
             return [...state]
         /////////////////////////////////////////////
+        case types.DETELE_ALL:
+            state.splice(0, state.length);
+            localStorage.setItem('tasks', JSON.stringify(state));
+            return [...state]
         default: return state;
     }
 };

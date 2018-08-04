@@ -8,36 +8,46 @@ class TaskItem extends Component {
   }
   deleteItem = () => {
     this.props.delete_item_dispatch(this.props.task.id);
-    this.props.close_task_form_dispatch();
   }
   editItem = () => {
-    this.props.open_task_form_dispatch();
     this.props.edit_item_dispatch(this.props.task);
   }
   render() {
     var { task, index } = this.props;
+    var setTime = Date.parse(task.date);
+    var thisTime = new Date();
+    var temp = Math.round((setTime - thisTime) / (1000 * 60 * 60 * 24));
+    if (temp < 0) {
+      temp = 'Overdue!';
+    } else if (!temp) {
+      temp = 'Not set!';
+    } else {
+      temp += ' days left';
+    }
     return (
       <tr>
         <td>{index + 1}</td>
-        <td>{task.name}</td>
+        <td>{!task.name ? '......' : task.name}</td>
+        <td>{!task.date ? '......' :task.date}</td>
+        <td>{temp}</td>
         <td className="text-center">
           <span
             className={this.props.task.status === true ? "label label-success" : "label label-danger"}
             onClick={this.toggleStatus}
-          >{(this.props.task.status === true) ? "Alarm On" : "Alarm Off"}
+          >{(this.props.task.status === true) ? 'ON' : 'OFF'}
           </span>
         </td>
         <td>
           <button
             type="button"
-            className="btn btn-warning"
+            className="btn btn-warning mr-5"
             onClick={this.editItem}
-          ><i className="fas fa-pencil-alt mr-5"></i>
+          ><i className="glyphicon glyphicon-pencil"></i>
           </button>&nbsp;
           <button
             type="button" className="btn btn-danger"
             onClick={this.deleteItem}
-          ><i className="fa fa-trash mr-5"></i>
+          ><i className="glyphicon glyphicon-trash"></i>
           </button>
         </td>
       </tr>
@@ -57,14 +67,8 @@ const mapDispatchToProps = (dispatch, props) => {
     delete_item_dispatch: (id) => {
       dispatch(actions.delete_item_action(id));
     },
-    close_task_form_dispatch: () => {
-      dispatch(actions.close_task_form());
-    },
     edit_item_dispatch: (task) => {
       dispatch(actions.edit_item_action(task));
-    },
-    open_task_form_dispatch: () => {
-      dispatch(actions.open_task_form());
     }
   }
 }

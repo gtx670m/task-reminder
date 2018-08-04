@@ -1,0 +1,66 @@
+#root {
+  #side_nav{
+    position: relative;
+    left: 18px;
+    top: -45px;
+    .show-on-large {
+      width: 25px;
+      background-color: transparent !important;
+      .material-icons {
+        color: white;
+      }
+    }
+    .side-nav {
+      .user{
+        color: black;
+        display: flex;
+        align-items: center;
+        align-content: center; 
+        height: 120px;
+        background-color: rgb(233, 233, 233);
+        .medly_img{
+          img{
+            margin: 0 20px;
+          }
+        }
+      }
+      p {
+        margin: 0 !important;
+      }
+      width: 70%;
+      max-width: 300px;
+      padding-bottom: 1000px;
+      li {
+        border-bottom: 0.5px rgb(201, 201, 201) solid;
+        a {
+          margin: 0;
+          padding: 0;
+          .material-icons {
+            margin: 0 15px 0 20px !important;
+            color: rgb(70, 70, 70);
+          }
+          &:hover {
+            text-decoration: none !important;
+          }
+          &:visited {
+            text-decoration: none !important;
+          }
+        }
+      }
+    }
+  }
+}
+  
+
+@media (min-width: 1440px) {
+  #sidenav_0.side-nav {
+      transform: translateX(0px) !important;
+  }
+}
+
+/*
+div.userView {
+  height: 128px !important;
+  background-color: rgb(233, 233, 233);
+}*/
+

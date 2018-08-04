@@ -6,25 +6,10 @@ export const show_list_action = () => {
     }
 }
 
-export const add_item_action = (task) => {
+export const save_item_action = (task) => {
     return {
-        type: types.ADD_ITEM,
+        type: types.SAVE_ITEM,
         task: task
-    }
-}
-export const toggle_task_form = () => {
-    return {
-        type: types.TOGGLE_TASK_FORM,
-    }
-}
-export const open_task_form = () => {
-    return {
-        type: types.OPEN_TASK_FORM,
-    }
-}
-export const close_task_form = () => {
-    return {
-        type: types.CLOSE_TASK_FORM,
     }
 }
 export const toggle_task_status_action = (id) => {
@@ -43,5 +28,11 @@ export const edit_item_action = (task) => {
     return {
         type: types.EDIT_ITEM,
         task
+    }
+}
+
+export const delete_all_action = () => {
+    return {
+        type: types.DETELE_ALL
     }
 }

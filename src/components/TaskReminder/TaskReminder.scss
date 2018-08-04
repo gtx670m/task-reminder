@@ -1,0 +1,57 @@
+.mt-15{
+  margin-top: 15px;
+}
+.mr-5 {
+  margin-right: 5px;
+}
+.ml-5 {
+  margin-left: 5px;
+}
+.mb-5{
+  margin-bottom: 5px;
+}
+.ml-15 {
+  margin-left: 15px;
+}
+h5 {
+  text-align: center;
+}
+.full_screen {
+  width: 100%;
+}
+.label:hover {
+  cursor: pointer;
+}
+//overwrite materialize lib
+.btn-warning {
+  color: #fff !important;
+  background-color: #f0ad4e !important;
+  border-color: #eea236 !important;
+}
+.btn-danger {
+  color: #fff !important;
+  background-color: #d9534f !important;
+  border-color: #d43f3a !important;
+}
+.btn-success {
+  color: #fff !important;
+  background-color: #5cb85c !important;
+  border-color: #4cae4c !important;
+}
+.btn, .btn-large {
+  // text-decoration: none !important;
+  // color: #fff !important;
+  // background-color: #26a69a !important;
+  // text-align: center !important;
+  // letter-spacing: .5px !important;
+  // transition: .2s ease-out !important;
+  // cursor: pointer !important;
+  display: inline-block !important;
+    padding: 6px 12px !important;
+    line-height: 1.42857143 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+    border: 1px solid transparent !important;
+    border-radius: 4px !important;
+}

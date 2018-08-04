@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/index';
-import Control from './Control';
 
 class TaskForm extends Component {
   constructor(props) {
@@ -9,40 +8,23 @@ class TaskForm extends Component {
     this.state = {
       id: '',
       name: '',
+      date: '',
       status: true
     }
   }
-  componentWillMount() {
-    var { task } = this.props;
-    if (this.props.task) {
-      this.setState({
-        id: task.id,
-        name: task.name,
-        status: task.status
-      });
-    }
-  }
-
   componentWillReceiveProps(nextProps) {
-    var { task } = nextProps;
-    if (nextProps && nextProps.task) {
+    var { editing_data } = nextProps;
+    if (nextProps) {
       this.setState({
-        id: task.id,
-        name: task.name,
-        status: task.status
-      });
-    } else if (!nextProps.task) {
-      this.setState({
-        id: '',
-        name: '',
-        status: true
+        id: editing_data.id,
+        name: editing_data.name,
+        date: editing_data.date,
+        status: editing_data.status
       });
     }
   }
 
-  closeTaskForm = () => {
-    this.props.close_task_form_dispatch();
-  }
+
   onChange = (event) => {
     var target = event.target; //trỏ đến các ô input
     var name = target.name;
@@ -53,68 +35,71 @@ class TaskForm extends Component {
   }
   onSubmit = (event) => {
     event.preventDefault();
-    this.props.add_item_dispatch(this.state);
-    this.props.close_task_form_dispatch();
-  }
-  clearForm = () => {
+    this.props.save_item_dispatch(this.state);
     this.setState({
+      id: '',
       name: '',
-      status: false
-    })
+      date: '',
+      status: true
+    });
+  }
+  deleteAll = () => {
+    this.props.delete_all_dispatch();
   }
   render() {
-    if (!this.props.toggle_task_form) return '';
     return (
       <div>
-        <div className="panel panel-warning">
-          <div className="panel-heading">
-            <h3 className="panel-title">
-              {this.props.editing_data.id ? "Sửa công việc" : "Thêm công việc"}
-              <span
-                className="fa fa-times-circle text-right"
-                onClick={this.closeTaskForm}
-              ></span>
-            </h3>
-          </div>
-          <div className="panel-body">
-            <form
-              onSubmit={this.onSubmit}>
-              <div className="form-group">
-                <label>Tên: </label>
+        <form
+          onSubmit={this.onSubmit}>
+          <div className="form-group">
+            <div className="row">
+              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <label>Name: </label>
                 <input
                   type="text" className="form-control" placeholder="Task name"
                   name="name"
-                  value={this.props.editing_data.name}
+                  value={this.state.name}
                   onChange={this.onChange}
                 />
-                <label>Trạng thái: </label>
+              </div>
+              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <label>Date: </label>
+                <input
+                  type="date" className="form-control" placeholder="Task name"
+                  name="date"
+                  value={this.state.date}
+                  onChange={this.onChange}
+                />
+              </div>
+              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <label>Alarm: </label>
                 <select
                   className="form-control"
                   required="required"
                   name="status"
-                  value={this.props.editing_data.status}
+                  value={this.state.status}
                   onChange={this.onChange}
                 >
-                  <option value={true}>Kích Hoạt</option>
-                  <option value={false}>Hủy</option>
+                  <option value={true}>ON</option>
+                  <option value={false}>OFF</option>
                 </select>
               </div>
+            </div>
+            <div className="row">
               <button
                 type="submit"
-                className="btn btn-warning mr-5">
-                <i className="fa fa-plus mr-5"></i>
-                Lưu lại
-                </button>&nbsp;
-              <button
+                className="btn btn-success mr-5 ml-15">
+                <i className="glyphicon glyphicon-plus"></i>
+              </button>&nbsp;
+                <button
                 type="button"
                 className="btn btn-danger mr-5"
-                onClick={this.clearForm}
-              ><i className="fa fa-times mr-5"></i>
-                Hủy bỏ
+                onClick={this.deleteAll}
+              ><i className="glyphicon glyphicon-floppy-remove"></i>
               </button>
-            </form>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
     );
   }
@@ -122,20 +107,18 @@ class TaskForm extends Component {
 
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
-    toggle_task_form: state.toggle_task_form,
     editing_data: state.editing_data
   }
 }
 
 const mapDispatchToProps = (dispatch, props) => {
   return {
-    add_item_dispatch: (task) => {
-      dispatch(actions.add_item_action(task));
+    save_item_dispatch: (task) => {
+      dispatch(actions.save_item_action(task));
     },
-    close_task_form_dispatch: () => {
-      dispatch(actions.close_task_form());
+    delete_all_dispatch : () => {
+      dispatch(actions.delete_all_action());
     }
   }
 }

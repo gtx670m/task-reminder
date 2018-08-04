@@ -3,3 +3,9 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+@media (min-width: 1440px) {
+  .drag-target {
+    display: none !important;
+  }
+}
