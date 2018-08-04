@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, NavItem, Icon } from 'react-materialize';
+import { Navbar, NavItem } from 'react-materialize';
 import './NavbarComponent.scss';
 class NavbarComponent extends Component {
   render() {

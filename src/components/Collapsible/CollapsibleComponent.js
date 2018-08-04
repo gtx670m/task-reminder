@@ -8,7 +8,7 @@ class CollapsibleComponent extends Component {
             <div>
                 {/* defaultActiveKey={0} */}
                 <Collapsible accordion        >
-                    <CollapsibleItem header='Deliveries' icon='local_shipping'>
+                <CollapsibleItem header='Deliveries' icon='local_shipping'>
                         <Collection>
                             <CollectionItem>Item 1</CollectionItem>
                             <CollectionItem>Item 2</CollectionItem>
