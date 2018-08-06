@@ -6,6 +6,7 @@ import './Login.scss';
 class Login extends Component {
   render() {
     return (
+      
       <div className="container">
         <div className="left-box">
           <div className="content">
