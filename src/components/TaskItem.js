@@ -24,38 +24,38 @@ class TaskItem extends Component {
     } else if (!milisecond_left) {
       time_left = 'Not set!';
     }
-    if(milisecond_left>=0){
+    if (milisecond_left >= 0) {
       setTimeout(() => {
         alert('Ring! Ring! Ring!');
       }, milisecond_left);
-    }
-    return (
+  }
+  return(
       <tr>
-        <td>{index + 1}</td>
-        <td>{!task.name ? '......' : task.name}</td>
-        <td>{!task.date ? '......' : task.date}</td>
-        <td>{time_left}</td>
-        <td className="text-center">
-          <span
-            className={this.props.task.status === true ? "label label-success" : "label label-danger"}
-            onClick={this.toggleStatus}
-          >{(this.props.task.status === true) ? 'ON' : 'OFF'}
-          </span>
-        </td>
-        <td>
+  <td>{index + 1}</td>
+  <td>{!task.name ? '......' : task.name}</td>
+  <td>{!task.date ? '......' : task.date}</td>
+  <td>{time_left}</td>
+  <td className="text-center">
+    <span
+      className={this.props.task.status === true ? "label label-success" : "label label-danger"}
+      onClick={this.toggleStatus}
+    >{(this.props.task.status === true) ? 'ON' : 'OFF'}
+    </span>
+  </td>
+  <td>
+    <button
+      type="button"
+      className="btn btn-warning mr-5"
+      onClick={this.editItem}
+    ><i className="glyphicon glyphicon-pencil"></i>
+    </button>&nbsp;
           <button
-            type="button"
-            className="btn btn-warning mr-5"
-            onClick={this.editItem}
-          ><i className="glyphicon glyphicon-pencil"></i>
-          </button>&nbsp;
-          <button
-            type="button" className="btn btn-danger"
-            onClick={this.deleteItem}
-          ><i className="glyphicon glyphicon-trash"></i>
-          </button>
-        </td>
-      </tr>
+      type="button" className="btn btn-danger"
+      onClick={this.deleteItem}
+    ><i className="glyphicon glyphicon-trash"></i>
+    </button>
+  </td>
+      </tr >
     );
   }
 }
