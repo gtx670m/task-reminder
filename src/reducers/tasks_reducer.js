@@ -20,13 +20,11 @@ var myReducer = (state = initialState, action) => {
             if (!newItem.id) {
                 newItem.id = randomString();
                 state.push(newItem);
-                alert('Added new Item!');
             } else {
                 index = state.findIndex((state) => {
                     return id === state.id;
                 });
                 state[index] = newItem;
-                alert('Saved!');
             }
             localStorage.setItem('tasks', JSON.stringify(state));
             return [...state];
