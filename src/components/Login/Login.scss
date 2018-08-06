@@ -61,7 +61,7 @@ body{
       @include center_col();
       .box{
         @include center_col();
-        width: 40vw;
+        width: 85%;
         height: 100%;
         max-height: 460px;
         border: 1px rgba(167, 167, 167, 0.5) solid;
@@ -138,7 +138,7 @@ body{
       .right-box{
         width: 60vw;  
         .box{
-          width: 45vw;
+          width: 85%;
           height: 75vh;
         }  
       }
