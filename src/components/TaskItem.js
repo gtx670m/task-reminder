@@ -24,6 +24,11 @@ class TaskItem extends Component {
     } else if (!milisecond_left) {
       time_left = 'Not set!';
     }
+    if(milisecond_left>=0){
+      setTimeout(() => {
+        alert('Ring! Ring! Ring!');
+      }, milisecond_left);
+    }
     return (
       <tr>
         <td>{index + 1}</td>

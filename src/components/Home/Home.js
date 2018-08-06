@@ -13,7 +13,7 @@ class Home extends Component {
           <SidenavComponent />
 
         </div>
-        <div className="body_content">
+        <div className="body_content ml-15">
           <TaskReminder />
         </div>
         <Footer />
