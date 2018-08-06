@@ -65,7 +65,7 @@ class TaskForm extends Component {
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <label>Date: </label>
                 <input
-                  type="date" className="form-control" placeholder="Task name"
+                  type="datetime-local" className="form-control"
                   name="date"
                   value={this.state.date}
                   onChange={this.onChange}
