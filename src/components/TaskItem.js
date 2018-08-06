@@ -16,20 +16,20 @@ class TaskItem extends Component {
     var { task, index } = this.props;
     var setTime = Date.parse(task.date);
     var thisTime = new Date();
-    var temp = Math.round((setTime - thisTime) / (1000 * 60 * 60 * 24));
-    if (temp < 0) {
-      temp = 'Overdue!';
-    } else if (!temp) {
-      temp = 'Not set!';
-    } else {
-      temp += ' days left';
+    var milisecond_left = Math.round((setTime - thisTime));
+    var day = Math.round(milisecond_left / (1000 * 60 * 60 * 24));
+    var time_left = `${day} days left`;
+    if (milisecond_left < 0) {
+      time_left = 'Overdue!';
+    } else if (!milisecond_left) {
+      time_left = 'Not set!';
     }
     return (
       <tr>
         <td>{index + 1}</td>
         <td>{!task.name ? '......' : task.name}</td>
-        <td>{!task.date ? '......' :task.date}</td>
-        <td>{temp}</td>
+        <td>{!task.date ? '......' : task.date}</td>
+        <td>{time_left}</td>
         <td className="text-center">
           <span
             className={this.props.task.status === true ? "label label-success" : "label label-danger"}
