@@ -32,7 +32,7 @@ class TaskItem extends Component {
   return(
       <tr>
   <td>{index + 1}</td>
-  <td>{!task.name ? '......' : task.name}</td>
+  <td>{task.name}</td>
   <td>{!task.date ? '......' : task.date}</td>
   <td>{time_left}</td>
   <td className="text-center">

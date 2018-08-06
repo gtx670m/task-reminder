@@ -58,6 +58,7 @@ class TaskForm extends Component {
                 <input
                   type="text" className="form-control focus_here" placeholder="Task name"
                   name="name"
+                  required
                   value={this.state.name}
                   onChange={this.onChange}
                 />
