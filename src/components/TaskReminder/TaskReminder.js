@@ -3,6 +3,7 @@ import './TaskReminder.scss';
 import TaskForm from '../TaskForm';
 import TaskList from '../TaskList';
 import { connect } from 'react-redux';
+import fire from '../../config/Fire';
 
 class TaskReminder extends Component {
   constructor(props) {
@@ -12,31 +13,10 @@ class TaskReminder extends Component {
         name: '',
         status: -1
       },
-      keyword: '',
-      sortBy: 'name',
-      sortValue: 1
     }
   }
-
-  filterItems = (filterName, filterStatus) => {
-    filterStatus = parseInt(filterStatus, 10);
-    this.setState({
-      filter: {
-        name: filterName.toLowerCase(),
-        status: filterStatus
-      }
-    });
-  }
-  onSearch = (keyword) => {
-    this.setState({
-      keyword: keyword
-    });
-  }
-  onSort = (sortBy, sortValue) => {
-    this.setState({
-      sortBy: sortBy,
-      sortValue: sortValue
-    });
+  logout = () => {
+    fire.auth().signOut();
   }
   render() {
     return (
@@ -55,9 +35,8 @@ class TaskReminder extends Component {
             
             <div className="row mt-15">
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <TaskList
-                  filterItems={this.filterItems}
-                />
+                <TaskList />
+                <button onClick={this.logout}>Log out</button>
               </div>
             </div>
 

@@ -80,9 +80,11 @@ body{
           .button{
             @include center_row();
             margin: 20px 0;
+            .btn {
+              margin: 0 4px;
+            }
             .btn_forgot {
               color: gray;
-              margin-left: 30px
             }
           }
           .address{
@@ -103,9 +105,13 @@ body{
             width: 75%;
             .button{
               @include center_col();
-              margin: 20px 0 !important;
-              .btn_forgot {
-                margin: 10px 0 0 0 !important;
+              margin: 0  !important;
+              .btn_container{
+                @include center_row();
+                margin-bottom: 5px;
+                .btn {
+                  margin: 1px 4px !important;
+                }
               }
             }
           }
@@ -220,10 +226,13 @@ body{
             }
             .button{
               @include center_col();
-              margin: 10px 0 !important;
-              .btn_forgot {
-                margin: 10px 0 0 0 !important;
+              .btn_container{
+                @include center_row();
+                .btn{
+                  margin: 0 4px !important;
+                }
               }
+              
             }
           }
         }

@@ -1,0 +1,41 @@
+[debug] [2018-08-07T11:09:32.963Z] ----------------------------------------------------------------------
+[debug] [2018-08-07T11:09:32.968Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\quang.le\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-08-07T11:09:32.969Z] CLI Version:   4.0.3
+[debug] [2018-08-07T11:09:32.969Z] Platform:      win32
+[debug] [2018-08-07T11:09:32.969Z] Node Version:  v8.11.3
+[debug] [2018-08-07T11:09:32.970Z] Time:          Tue Aug 07 2018 18:09:32 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-08-07T11:09:32.970Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-08-07T11:09:33.062Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-08-07T11:09:33.064Z] > authorizing via signed-in user
+[debug] [2018-08-07T11:09:33.069Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-08-07T11:09:33.070Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/xopFX6kkR8vbMZIVkAVLKonx6cD3gnV4YVchOdctyAU',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Tue Aug 07 2018 18:09:33 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-08-07T11:09:33.447Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-07T11:09:33.510Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/task-reminder-ea447  
+  
+ Tue Aug 07 2018 18:09:33 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-08-07T11:09:34.472Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-07T11:09:34.473Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/task-reminder-ea447/tokens  
+  
+ Tue Aug 07 2018 18:09:34 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-08-07T11:09:35.473Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-07T11:09:35.475Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/task-reminder-ea447  
+  
+ Tue Aug 07 2018 18:09:35 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-08-07T11:09:36.671Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Code\ReactJS\task-reminder'...
+[info] 
+[debug] [2018-08-07T11:09:36.675Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/381389804670/clients/_:getWebAppConfig  
+  
+ Tue Aug 07 2018 18:09:36 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-08-07T11:09:37.588Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: build
+[info] +  hosting: Local server: http://localhost:5000
+
