@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
-import './App.scss';
+// import './App.scss';
 import fire from './config/Fire';
 
 class App extends Component {

@@ -14,11 +14,12 @@ class TaskForm extends Component {
   }
   componentWillReceiveProps(nextProps) {
     var { editing_data } = nextProps;
+    console.log(editing_data);
     if (nextProps) {
       this.setState({
         id: editing_data.id,
         name: editing_data.name,
-        date: editing_data.date,
+        date: editing_data.date ? editing_data.date : '',
         status: editing_data.status
       });
     }
@@ -118,7 +119,7 @@ const mapDispatchToProps = (dispatch, props) => {
     save_item_dispatch: (task) => {
       dispatch(actions.save_item_action(task));
     },
-    delete_all_dispatch : () => {
+    delete_all_dispatch: () => {
       dispatch(actions.delete_all_action());
     }
   }

@@ -1,4 +1,5 @@
 import * as types from '../constants/ActionTypes';
+import fire from '../config/Fire';
 var randomString = require('random-string');
 var localData = JSON.parse(localStorage.getItem('tasks'));
 var initialState = localData ? localData : [];
@@ -26,7 +27,20 @@ var myReducer = (state = initialState, action) => {
                 });
                 state[index] = newItem;
             }
+            for (let i = 0; i < state.length; i++) {
+                fire.database().ref('tasks/' + i).set({
+                    id: state[i].id,
+                    name: state[i].name,
+                    date: state[i].date ? state[i].date : '',
+                    status: state[i].status
+                });
+            }
+            // fire.database().ref('tasks').on()
             localStorage.setItem('tasks', JSON.stringify(state));
+            // fire.database().ref('tasks').set({
+            //     tasks: [{id: "kWayBzEt", name: "11145", status: true},
+            //     {id: "vV7x1dST", name: "12", status: false}]
+            // });
             return [...state];
         /////////////////////////////////////////////////////////
         case types.TOGGLE_TASK_STATUS:
