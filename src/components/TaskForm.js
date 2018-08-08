@@ -14,7 +14,6 @@ class TaskForm extends Component {
   }
   componentWillReceiveProps(nextProps) {
     var { editing_data } = nextProps;
-    console.log(editing_data);
     if (nextProps) {
       this.setState({
         id: editing_data.id,

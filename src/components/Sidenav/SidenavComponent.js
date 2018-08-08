@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { SideNav, SideNavItem, Icon } from 'react-materialize';
 import './SidenavComponent.scss';
-import CollapsibleComponent from '../Collapsible/CollapsibleComponent'
+import CollapsibleComponent from '../Collapsible/CollapsibleComponent';
 class SidenavComponent extends Component {
     render() {
         return (
