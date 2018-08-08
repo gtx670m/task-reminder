@@ -73,6 +73,7 @@ export default (state = initialState, action) => {
       if (index !== -1) {
         state.splice(index, 1);
       }
+      database.ref('tasks').remove();
       for (let i = 0; i < state.length; i++) {
         database.ref('tasks/' + i).set({
           id: state[i].id,
@@ -86,14 +87,7 @@ export default (state = initialState, action) => {
     /////////////////////////////////////////////
     case types.DETELE_ALL:
       state.splice(0, state.length);
-      for (let i = 0; i < state.length; i++) {
-        database.ref('tasks/' + i).set({
-          id: state[i].id,
-          name: state[i].name,
-          date: state[i].date ? state[i].date : '',
-          status: state[i].status
-        });
-      }
+      database.ref('tasks').remove();
       // localStorage.setItem('tasks', JSON.stringify(state));
       return [...state]
     default: return state;
